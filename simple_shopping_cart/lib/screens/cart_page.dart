@@ -38,18 +38,19 @@ class CartPage extends StatelessWidget {
               price: 6.1,
             ),
             ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                ),
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Checkout"),
-                    Text('data'),
-                  ],
-                ))
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+              ),
+              onPressed: () {},
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children:const [
+                  Text("Checkout"),
+                  Text('\$22.1'),
+                ],
+              ),
+            ),
           ],
         ),
       ),

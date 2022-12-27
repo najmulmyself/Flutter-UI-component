@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:simple_shopping_cart/controller/controller.dart';
 
 class ProductRow extends StatelessWidget {
   ProductRow({this.name, this.price});
@@ -40,22 +42,31 @@ class ProductRow extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 20),
-                Text(
-                  '1',
-                  style: GoogleFonts.robotoSlab(
-                      fontSize: 15, fontWeight: FontWeight.bold),
+                Consumer(
+                  builder: (context, cartUpdate, child) {
+                    return Text(
+                      " ${cartUpdate.x}",
+                      style: GoogleFonts.robotoSlab(
+                          fontSize: 15, fontWeight: FontWeight.bold),
+                    );
+                  },
                 ),
                 const SizedBox(width: 20),
-                Container(
-                  height: 30,
-                  width: 30,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: const Icon(
-                    Icons.add,
-                    color: Colors.black,
+                GestureDetector(
+                  onTap: () {
+                    Provider.of<CartUpdate>(context).update();
+                  },
+                  child: Container(
+                    height: 30,
+                    width: 30,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: const Icon(
+                      Icons.add,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ],
