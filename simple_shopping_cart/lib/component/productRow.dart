@@ -42,19 +42,22 @@ class ProductRow extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 20),
-                Consumer(
+                Consumer<CartUpdate>(
+                  // need to add type
                   builder: (context, cartUpdate, child) {
                     return Text(
-                      " ${cartUpdate.x}",
+                      cartUpdate.add.toString(),
                       style: GoogleFonts.robotoSlab(
-                          fontSize: 15, fontWeight: FontWeight.bold),
+                          color: Colors.grey.shade600,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
                     );
                   },
                 ),
                 const SizedBox(width: 20),
                 GestureDetector(
                   onTap: () {
-                    Provider.of<CartUpdate>(context).update();
+                    Provider.of<CartUpdate>(context, listen: false).update();
                   },
                   child: Container(
                     height: 30,

@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
 class CartUpdate extends ChangeNotifier{
-  int _x = 0;
-  get x => _x;
+  int  _add = 0;
+  int get add => _add;
   void update(){
-    _x++;
+    _add++;
     notifyListeners();
   }
 
