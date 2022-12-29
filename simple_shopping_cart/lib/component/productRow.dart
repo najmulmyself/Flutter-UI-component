@@ -4,9 +4,10 @@ import 'package:provider/provider.dart';
 import 'package:simple_shopping_cart/controller/controller.dart';
 
 class ProductRow extends StatelessWidget {
-  ProductRow({this.name, this.price});
+  ProductRow({this.name, this.price, this.callback});
   String? name;
   double? price;
+  Function()? callback;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -56,9 +57,7 @@ class ProductRow extends StatelessWidget {
                 ),
                 const SizedBox(width: 20),
                 GestureDetector(
-                  onTap: () {
-                    Provider.of<CartUpdate>(context, listen: false).update();
-                  },
+                  onTap: callback,
                   child: Container(
                     height: 30,
                     width: 30,

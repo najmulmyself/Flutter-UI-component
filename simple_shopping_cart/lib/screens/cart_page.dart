@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 import '../component/productRow.dart';
+import '../controller/controller.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -22,6 +24,9 @@ class CartPage extends StatelessWidget {
                   fontSize: 30, fontWeight: FontWeight.bold),
             ),
             ProductRow(
+              callback: () {
+                Provider.of<CartUpdate>(context, listen: false).update();
+              },
               name: 'Onion',
               price: 5.1,
             ),
@@ -40,12 +45,13 @@ class CartPage extends StatelessWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black,
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
               ),
               onPressed: () {},
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children:const [
+                children: const [
                   Text("Checkout"),
                   Text('\$22.1'),
                 ],
